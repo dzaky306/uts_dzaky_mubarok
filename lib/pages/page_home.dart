@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../models/makanan_model.dart';
-import 'meal_list_screen.dart';
-import 'meal_detail_screen.dart';
+import 'page_list_makanan.dart';
+import 'page_detail_makanan.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
