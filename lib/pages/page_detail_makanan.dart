@@ -56,7 +56,7 @@ class MealDetailScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       child: Image.network(
                         meal['strMealThumb'] ?? '',
-                        width: MediaQuery.of(context).size.width * 0.8, // Lebar 80% layar
+                        width: MediaQuery.of(context).size.width * 0.8,
                         fit: BoxFit.cover,
                       ),
                     ),
