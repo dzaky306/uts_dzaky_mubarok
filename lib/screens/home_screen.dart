@@ -44,9 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             setState(() {
-              _isSearching = false; // Matikan mode pencarian
-              _searchController.clear(); // Bersihkan teks
-              _searchResponse = null; // Hapus hasil pencarian
+              _isSearching = false;
+              _searchController.clear();
+              _searchResponse = null;
             });
           },
         )
