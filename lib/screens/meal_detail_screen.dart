@@ -12,7 +12,6 @@ class MealDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Detail Resep"),
         backgroundColor: Colors.orange,
-        // Tombol kembali otomatis ada di sini karena Navigator.push
       ),
       body: FutureBuilder<ModelDetailMakanan>(
         future: ApiService().lookupMeal(mealId),
@@ -27,7 +26,6 @@ class MealDetailScreen extends StatelessWidget {
           final meal = snapshot.data!.meals[0];
           List<String> ingredients = [];
 
-          // Mengambil data bahan 1-20 yang tidak kosong
           for (int i = 1; i <= 20; i++) {
             String? ing = meal['strIngredient$i'];
             String? meas = meal['strMeasure$i'];
@@ -41,7 +39,6 @@ class MealDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // BAGIAN GAMBAR YANG SUDAH DIKETENGAHKAN
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
@@ -67,7 +64,6 @@ class MealDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
 
-                // Judul Makanan
                 Center(
                   child: Text(
                     meal['strMeal'] ?? '',
@@ -90,7 +86,6 @@ class MealDetailScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
-                // List bahan-bahan[cite: 1]
                 ...ingredients.map((e) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 2),
                   child: Row(

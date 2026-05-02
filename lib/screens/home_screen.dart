@@ -39,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text("Daftar Makanan"),
         backgroundColor: Colors.orange,
-        // Tambahkan tombol kembali/reset di sebelah kiri jika sedang mencari
         leading: _isSearching
             ? IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -51,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },
         )
-            : null, // Jika tidak mencari, biarkan default (kosong/menu)
+            : null,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(70),
           child: Padding(
@@ -61,13 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: InputDecoration(
                 hintText: "Cari masakan...",
                 prefixIcon: const Icon(Icons.search),
-                // Tambahkan tombol "X" di pojok kanan TextField untuk hapus teks
                 suffixIcon: _searchController.text.isNotEmpty
                     ? IconButton(
                   icon: const Icon(Icons.clear),
                   onPressed: () {
                     _searchController.clear();
-                    _onSearch(""); // Reset pencarian
+                    _onSearch("");
                   },
                 )
                     : null,
@@ -95,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
           itemCount: snapshot.data!.length,
           itemBuilder: (context, index) {
             final cat = snapshot.data![index];
-            return InkWell( // Navigasi ke Daftar Masakan per Kategori
+            return InkWell(
               onTap: () => Navigator.push(context, MaterialPageRoute(
                 builder: (c) => MealListScreen(categoryName: cat.name),
               )),
@@ -117,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildSearchList() {
     if (_isLoadingSearch) return const Center(child: CircularProgressIndicator());
     if (_searchResponse == null || _searchResponse!.meals.isEmpty) {
-      return const Center(child: Text("Maaf, masakan tidak ditemukan.")); // Bagian C
+      return const Center(child: Text("Maaf, masakan tidak ditemukan."));
     }
     return ListView.builder(
       itemCount: _searchResponse!.meals.length,
@@ -126,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return ListTile(
           leading: Image.network(meal.strMealThumb, width: 50),
           title: Text(meal.strMeal),
-          onTap: () { // NAVIGASI KE DETAIL (PENTING!)
+          onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (c) => MealDetailScreen(mealId: meal.idMeal),
             ));

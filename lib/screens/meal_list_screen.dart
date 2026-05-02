@@ -11,7 +11,7 @@ class MealListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(categoryName),
-        backgroundColor: Colors.orange,), // Tombol kembali otomatis muncul di sini
+        backgroundColor: Colors.orange,),
       body: FutureBuilder<ModelMakanan>(
         future: ApiService().fetchMealsByCategory(categoryName),
         builder: (context, snapshot) {

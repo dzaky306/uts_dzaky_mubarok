@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-// Model Daftar Masakan
 ModelMakanan modelMakananFromJson(String str) => ModelMakanan.fromJson(json.decode(str));
 
 class ModelMakanan {
@@ -25,7 +24,6 @@ class Meal {
   );
 }
 
-// Model Detail Masakan (Menggunakan Map)
 ModelDetailMakanan modelDetailMakananFromJson(String str) => ModelDetailMakanan.fromJson(json.decode(str));
 
 class ModelDetailMakanan {
@@ -37,7 +35,6 @@ class ModelDetailMakanan {
   );
 }
 
-// Model Kategori
 class Category {
   final String id, name, thumb;
   Category({required this.id, required this.name, required this.thumb});
